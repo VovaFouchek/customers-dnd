@@ -1,0 +1,104 @@
+{
+  "customers": [
+    {
+      "id": "2EhdYxQUmh",
+      "name": "Sophia Stewart",
+      "username": "Sophia_St",
+      "email": "moreau.dominic@bedard.biz",
+      "address": "Nevada",
+      "phone": "(751) 819-1619",
+      "website": "DJDisc.com",
+      "company": "Lemieux"
+    },
+    {
+      "id": "yrKHjswp1A",
+      "name": "Grace Lee",
+      "username": "Grace_Lee",
+      "email": "tardif.annie@hotmail.com",
+      "address": "Ohio",
+      "phone": "+1-275-209-2039",
+      "website": "saliktech.com",
+      "company": "Dion S.A."
+    },
+    {
+      "id": "O8DEWliwGS",
+      "name": "Alexander Davis",
+      "username": "AlexD",
+      "email": "denise.rioux@gmail.com",
+      "address": "Saint Louis",
+      "phone": "903-380-1653",
+      "website": "awfularthursnc.com",
+      "company": "Dubois"
+    },
+    {
+      "id": "3Gmmclk2cb",
+      "name": "Adam Cote",
+      "username": "AdamCoteee",
+      "email": "tessier.josephine@gmail.com",
+      "address": "Maple Shade",
+      "phone": "1-953-325-3730",
+      "website": "fitkvinnorinfo.com",
+      "company": "Parent S.A.R.L."
+    },
+    {
+      "id": "kVA17rsWI6",
+      "name": "Liam Gagne",
+      "username": "L-Gagne",
+      "email": "arsenault.penelope@hebert.com",
+      "address": "Albany",
+      "phone": "1-986-804-4036",
+      "website": "josephboscomd.com",
+      "company": "St-Pierre SARL"
+    },
+    {
+      "id": "SGx0FKkF0c",
+      "name": "Selma Knutsen",
+      "username": "Knuuts",
+      "email": "ktollefsen@ottesen",
+      "address": "Schiller Park",
+      "phone": "75 99 40 32",
+      "website": "beautysellbuy.com",
+      "company": "Christiansen & Haaland ANS"
+    },
+    {
+      "id": "YjvCzcXxgh",
+      "name": "Mathilde Fredriksen",
+      "username": "Mat Fred",
+      "email": "tgabrielsen@ali.biz",
+      "address": "Mansfield",
+      "phone": "+47035643106",
+      "website": "wealthyly.com",
+      "company": "Gjerde NUF"
+    },
+    {
+      "id": "mFVahgJNCK",
+      "name": "Markus Rasmussen",
+      "username": "Markus",
+      "email": "oien.osman@mathisen.info",
+      "address": "Huntington",
+      "phone": "988 46 688",
+      "website": "englishtmall.com",
+      "company": "Lie & Amundsen ASA"
+    },
+    {
+      "id": "vjPhKOzwnW",
+      "name": "Valentine Roche",
+      "username": "Roche_Val",
+      "email": "cousin.thierry@orange.fr",
+      "address": "Cedar Rapids",
+      "phone": "+33 (0)5 81 43 07 65",
+      "website": "gurubreakfast.com",
+      "company": "Gomez Legendre SA"
+    },
+    {
+      "id": "GQ9s5SKjLg",
+      "name": "Sofia Mattsson",
+      "username": "Sof_Mattson",
+      "email": "hoj.lena@live.dk",
+      "address": "Lumberton",
+      "phone": "+45 5356 2001",
+      "website": "ipwebdesigns.com",
+      "company": "Fischer og Haugaard ApS"
+    }
+  ]
+}
