@@ -7,7 +7,7 @@ export const Container = styled.div`
   font-family: 'Roboto', sans-serif;
   width: 100%;
   background: ${theme.colors.background};
-  max-width: 1240px;
+  max-width: 1600px;
   margin: 0 auto;
   padding: 2rem;
   border-radius: 15px;
