@@ -13,6 +13,7 @@
   "plugins": ["react", "prettier", "jest"],
   "rules": {
     "react/react-in-jsx-scope": 0,
+    "no-param-reassign": [2, { "props": false }],
     "react/function-component-definition": [
       2,
       { "namedComponents": "arrow-function" }
