@@ -4,6 +4,7 @@ import { fetchCustomers } from './action';
 
 const initialState = {
   customers: [],
+  columnsTitle: [],
   isLoading: false,
   error: '',
 };
@@ -11,6 +12,11 @@ const initialState = {
 const customersSlice = createSlice({
   name: 'customers',
   initialState,
+  reducers: {
+    setColumnsTitle(state, action) {
+      state.columnsTitle = action.payload;
+    },
+  },
   extraReducers: (builder) => {
     builder.addCase(fetchCustomers.pending, (state) => {
       state.isLoading = true;
@@ -26,4 +32,5 @@ const customersSlice = createSlice({
   },
 });
 
+export const { setColumnsTitle } = customersSlice.actions;
 export default customersSlice.reducer;

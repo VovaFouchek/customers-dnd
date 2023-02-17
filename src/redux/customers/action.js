@@ -2,7 +2,7 @@ import { createAsyncThunk, isRejectedWithValue } from '@reduxjs/toolkit';
 import axios from 'axios';
 
 import { CUSTOMERS_FETCH } from 'redux/action-types';
-import { API } from 'shared/api/config/axios';
+import { API } from 'utils/api/config/axios';
 
 export const fetchCustomers = createAsyncThunk(CUSTOMERS_FETCH, async () => {
   try {
