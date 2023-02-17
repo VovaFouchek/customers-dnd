@@ -22,6 +22,7 @@ section {
 }
 
 body {
+  font-family: 'Roboto', sans-serif;
 	line-height: 1;
 }
 

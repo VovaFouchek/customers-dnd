@@ -1,28 +1,41 @@
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
 
 import { useDispatch, useSelector } from 'react-redux';
 
-import BasicTable from 'components/BasicTable';
-import ErrorMessage from 'components/ErrorMessage';
-import Loader from 'components/Loader';
-import Main from 'components/Main';
+import { ErrorMessage, Loader, MainContainer } from 'components';
+import PopUp from 'components/PopUp';
 import { fetchCustomers } from 'redux/customers/action';
 import { getCustomers } from 'redux/customers/selectors';
 
+import CustomersTable from './CustomersTable';
+import PopUpContent from './PopUpContent';
+
 const Home = () => {
-  const dispatch = useDispatch();
   const { isLoading, error } = useSelector(getCustomers);
+
+  const dispatch = useDispatch();
+  const [open, setOpen] = useState(false);
+  const handleOpen = () => setOpen(true);
+  const handleClose = () => setOpen(false);
 
   useEffect(() => {
     dispatch(fetchCustomers());
   }, [dispatch]);
 
   return (
-    <Main>
-      <BasicTable />
+    <MainContainer>
+      <PopUp
+        titleBtn="Select Columns"
+        handleOpen={handleOpen}
+        handleClose={handleClose}
+        open={open}
+      >
+        <PopUpContent handleClosePopUp={handleClose} />
+      </PopUp>
+      <CustomersTable />
       {isLoading && <Loader />}
       {!isLoading && error ? <ErrorMessage description={error} /> : null}
-    </Main>
+    </MainContainer>
   );
 };
 
