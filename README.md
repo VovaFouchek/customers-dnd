@@ -14,6 +14,10 @@ Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
 The page will reload when you make changes.\
 You may also see any lint errors in the console.
 
+### `yarn server`
+Runs local server which located in folder server -> database.json
+Open [http://localhost:3005/customers](http://localhost:3005/customers) to view it.
+
 ### `yarn test`
 
 Launches the test runner in the interactive watch mode.\

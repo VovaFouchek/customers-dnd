@@ -24,10 +24,10 @@
   },
   "scripts": {
     "start": "react-scripts start",
+    "server": "json-server -w server/database.json -p 3005",
     "build": "react-scripts build",
     "test": "react-scripts test",
-    "eject": "react-scripts eject",
-    "server": "json-server -w server/database.json -p 3005"
+    "eject": "react-scripts eject"
   },
   "eslintConfig": {
     "extends": [
