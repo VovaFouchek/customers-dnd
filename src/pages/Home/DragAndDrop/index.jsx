@@ -8,6 +8,7 @@ import styled from 'styled-components';
 import { MainButton } from 'components';
 import { setColumnsTitle } from 'redux/customers/reducer';
 import { getCustomers } from 'redux/customers/selectors';
+import { device } from 'styles/Breakpoints';
 
 import Column from '../Column';
 
@@ -17,6 +18,11 @@ const StyledColumns = styled.div`
   width: 100%;
   height: 460px;
   gap: 30px;
+
+  @media ${device.md} {
+    grid-template-columns: 1fr;
+    overflow: auto;
+  }
 `;
 
 const DragAndDrop = ({ handleClosePopUp }) => {
@@ -121,10 +127,12 @@ const DragAndDrop = ({ handleClosePopUp }) => {
 
     return null;
   };
+
   const handleClick = () => {
     dispatch(setColumnsTitle(columns.selected.list));
     handleClosePopUp();
   };
+
   return (
     <>
       <DragDropContext onDragEnd={onDragEnd}>

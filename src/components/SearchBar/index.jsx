@@ -1,6 +1,5 @@
 import { TextField } from '@mui/material';
 
-// todo need to add
 // eslint-disable-next-line react/prop-types
 const SearchBar = ({ setSearchQuery, placeholder }) => {
   return (

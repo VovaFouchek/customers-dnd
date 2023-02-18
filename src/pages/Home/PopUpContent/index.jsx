@@ -1,14 +1,21 @@
 import PropTypes from 'prop-types';
 
-import { SearchBar } from 'components';
-
 import DragAndDrop from '../DragAndDrop';
 
 const PopUpContent = ({ handleClosePopUp }) => {
+  // const [searchQuery, setSearchQuery] = useState('');
+
   return (
     <>
-      <SearchBar placeholder="Search available columns..." />
-      <DragAndDrop handleClosePopUp={handleClosePopUp} />
+      {/* <SearchBar
+        searchQuery={searchQuery}
+        setSearchQuery={setSearchQuery}
+        placeholder="Search available columns..."
+      /> */}
+      <DragAndDrop
+        handleClosePopUp={handleClosePopUp}
+        // searchQuery={searchQuery}
+      />
     </>
   );
 };
