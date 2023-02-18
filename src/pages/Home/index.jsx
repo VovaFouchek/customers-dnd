@@ -1,14 +1,15 @@
-import { useEffect, useState } from 'react';
+import { lazy, useEffect, useState } from 'react';
 
 import { useDispatch, useSelector } from 'react-redux';
 
 import { ErrorMessage, Loader, MainContainer } from 'components';
-import PopUp from 'components/PopUp';
 import { fetchCustomers } from 'redux/customers/action';
 import { getCustomers } from 'redux/customers/selectors';
 
 import CustomersTable from './CustomersTable';
 import PopUpContent from './PopUpContent';
+
+const PopUpComponent = lazy(() => import('components/PopUp'));
 
 const Home = () => {
   const { isLoading, error } = useSelector(getCustomers);
@@ -24,14 +25,14 @@ const Home = () => {
 
   return (
     <MainContainer>
-      <PopUp
+      <PopUpComponent
         titleBtn="Select Columns"
         handleOpen={handleOpen}
         handleClose={handleClose}
         open={open}
       >
         <PopUpContent handleClosePopUp={handleClose} />
-      </PopUp>
+      </PopUpComponent>
       <CustomersTable />
       {isLoading && <Loader />}
       {!isLoading && error ? <ErrorMessage description={error} /> : null}
