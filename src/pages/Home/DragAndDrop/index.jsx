@@ -1,5 +1,6 @@
 import { useEffect, useState } from 'react';
 
+import PropTypes from 'prop-types';
 import { DragDropContext } from 'react-beautiful-dnd';
 import { useSelector, useDispatch } from 'react-redux';
 import styled from 'styled-components';
@@ -18,7 +19,6 @@ const StyledColumns = styled.div`
   gap: 30px;
 `;
 
-// eslint-disable-next-line react/prop-types
 const DragAndDrop = ({ handleClosePopUp }) => {
   const dispatch = useDispatch();
   const [columns, setColumns] = useState({});
@@ -98,15 +98,12 @@ const DragAndDrop = ({ handleClosePopUp }) => {
     };
 
     // Make a new end list array
-    // const newEndList = end.list;
-
     // Insert the item into the end list
     const newEndList = [
       ...end.list.slice(0, destination.index),
       start.list[source.index],
       ...end.list.slice(destination.index),
     ];
-    // newEndList.splice(destination.index, 0, start.list[source.index]);
 
     // Create a new end column
     const newEndCol = {
@@ -126,7 +123,6 @@ const DragAndDrop = ({ handleClosePopUp }) => {
   };
   const handleClick = () => {
     dispatch(setColumnsTitle(columns.selected.list));
-    // dispatch(setAvailableColumns(columns.available.list));
     handleClosePopUp();
   };
   return (
@@ -144,3 +140,7 @@ const DragAndDrop = ({ handleClosePopUp }) => {
 };
 
 export default DragAndDrop;
+
+DragAndDrop.propTypes = {
+  handleClosePopUp: PropTypes.func.isRequired,
+};
