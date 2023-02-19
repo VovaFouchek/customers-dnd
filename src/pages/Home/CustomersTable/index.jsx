@@ -1,3 +1,4 @@
+/* eslint-disable react/no-array-index-key */
 import { useEffect, useMemo } from 'react';
 
 import {
@@ -9,7 +10,6 @@ import {
   TableHead,
   TableRow,
 } from '@mui/material';
-import { nanoid } from 'nanoid';
 import { useDispatch, useSelector } from 'react-redux';
 
 import { setColumnsTitle } from 'redux/customers/reducer';
@@ -53,11 +53,11 @@ const CustomersTable = () => {
           </TableRow>
         </TableHead>
         <TableBody>
-          {selectedCustomers?.map((row) => (
-            <TableRow key={nanoid()}>
-              {Object.keys(row).map((key) => (
-                <TableCell key={nanoid()} sx={styledTableCell}>
-                  {row[key]}
+          {selectedCustomers?.map((row, index) => (
+            <TableRow key={index}>
+              {Object.values(row).map((value) => (
+                <TableCell key={value} sx={styledTableCell}>
+                  {value}
                 </TableCell>
               ))}
             </TableRow>

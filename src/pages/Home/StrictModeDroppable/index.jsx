@@ -1,13 +1,15 @@
+/* eslint-disable react/prop-types */
 /* eslint-disable react/jsx-props-no-spreading */
 import { useEffect, useState } from 'react';
 
 import { Droppable } from 'react-beautiful-dnd';
 
-// eslint-disable-next-line react/prop-types
 const StrictModeDroppable = ({ children, ...props }) => {
   const [enabled, setEnabled] = useState(false);
+
   useEffect(() => {
     const animation = requestAnimationFrame(() => setEnabled(true));
+
     return () => {
       cancelAnimationFrame(animation);
       setEnabled(false);

@@ -1,21 +1,23 @@
+import { useState } from 'react';
+
 import PropTypes from 'prop-types';
+
+import { SearchBar } from 'components';
 
 import DragAndDrop from '../DragAndDrop';
 
-const PopUpContent = ({ handleClosePopUp }) => {
-  // const [searchQuery, setSearchQuery] = useState('');
+const PopUpContent = ({ onClose }) => {
+  const [searchQuery, setSearchQuery] = useState('');
+  const handleSearch = (event) => setSearchQuery(event.target.value);
 
   return (
     <>
-      {/* <SearchBar
-        searchQuery={searchQuery}
-        setSearchQuery={setSearchQuery}
+      <SearchBar
+        value={searchQuery}
+        onChange={handleSearch}
         placeholder="Search available columns..."
-      /> */}
-      <DragAndDrop
-        handleClosePopUp={handleClosePopUp}
-        // searchQuery={searchQuery}
       />
+      <DragAndDrop onClose={onClose} searchQuery={searchQuery} />
     </>
   );
 };
@@ -23,5 +25,5 @@ const PopUpContent = ({ handleClosePopUp }) => {
 export default PopUpContent;
 
 PopUpContent.propTypes = {
-  handleClosePopUp: PropTypes.func.isRequired,
+  onClose: PropTypes.func.isRequired,
 };

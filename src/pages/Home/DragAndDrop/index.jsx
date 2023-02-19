@@ -6,6 +6,7 @@ import { useSelector, useDispatch } from 'react-redux';
 import styled from 'styled-components';
 
 import { MainButton } from 'components';
+import { filterData } from 'helpers';
 import { setColumnsTitle } from 'redux/customers/reducer';
 import { getCustomers } from 'redux/customers/selectors';
 import { device } from 'styles/Breakpoints';
@@ -25,10 +26,11 @@ const StyledColumns = styled.div`
   }
 `;
 
-const DragAndDrop = ({ handleClosePopUp }) => {
+const DragAndDrop = ({ onClose, searchQuery }) => {
   const dispatch = useDispatch();
-  const [columns, setColumns] = useState({});
   const { columnsTitle, customers } = useSelector(getCustomers);
+  const [columns, setColumns] = useState({});
+  const [filteredAvailable, setFilteredAvailable] = useState([]);
 
   useEffect(() => {
     const allColumnsTitle = Object.keys(customers[0]);
@@ -36,6 +38,8 @@ const DragAndDrop = ({ handleClosePopUp }) => {
     const initialAvailableColumns = allColumnsTitle.filter(
       (column) => !columnsTitle.includes(column)
     );
+
+    setFilteredAvailable(initialAvailableColumns);
 
     const initialColumns = {
       available: {
@@ -51,6 +55,16 @@ const DragAndDrop = ({ handleClosePopUp }) => {
     };
     setColumns(initialColumns);
   }, [columnsTitle, customers]);
+
+  useEffect(() => {
+    setColumns((prevState) => ({
+      ...prevState,
+      available: {
+        ...prevState.available,
+        list: filterData(filteredAvailable, searchQuery),
+      },
+    }));
+  }, [filteredAvailable, searchQuery]);
 
   const onDragEnd = ({ source, destination }) => {
     // Make sure we have a valid destination
@@ -125,12 +139,22 @@ const DragAndDrop = ({ handleClosePopUp }) => {
       [newEndCol.id]: newEndCol,
     }));
 
+    setFilteredAvailable(
+      newStartCol.id === 'available'
+        ? filteredAvailable.filter((item) => item !== start.list[source.index])
+        : [
+            ...filteredAvailable.slice(0, destination.index),
+            start.list[source.index],
+            ...filteredAvailable.slice(destination.index),
+          ]
+    );
+
     return null;
   };
 
   const handleClick = () => {
     dispatch(setColumnsTitle(columns.selected.list));
-    handleClosePopUp();
+    onClose();
   };
 
   return (
@@ -142,7 +166,7 @@ const DragAndDrop = ({ handleClosePopUp }) => {
           ))}
         </StyledColumns>
       </DragDropContext>
-      <MainButton onClick={() => handleClick()}>Apply</MainButton>
+      <MainButton onClick={handleClick}>Apply</MainButton>
     </>
   );
 };
@@ -150,5 +174,6 @@ const DragAndDrop = ({ handleClosePopUp }) => {
 export default DragAndDrop;
 
 DragAndDrop.propTypes = {
-  handleClosePopUp: PropTypes.func.isRequired,
+  onClose: PropTypes.func.isRequired,
+  searchQuery: PropTypes.string,
 };

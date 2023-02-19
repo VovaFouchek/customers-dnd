@@ -1,18 +1,21 @@
 import { TextField } from '@mui/material';
 
 // eslint-disable-next-line react/prop-types
-const SearchBar = ({ setSearchQuery, placeholder }) => {
+const SearchBar = ({ value, onChange, placeholder }) => {
   return (
     <form>
       <TextField
         id="search-bar"
-        onInput={(event) => {
-          setSearchQuery(event.target.value);
-        }}
+        onChange={onChange}
+        value={value}
         variant="outlined"
         placeholder={placeholder}
         size="small"
-        sx={{ color: 'red' }}
+        sx={{
+          '& input': {
+            color: '#fff',
+          },
+        }}
       />
     </form>
   );

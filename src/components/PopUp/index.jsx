@@ -13,24 +13,19 @@ const style = {
   maxHeight: '650px',
   height: '100%',
   width: '100%',
-  bgcolor: '#2d2936',
+  bgcolor: '#2d2936d9',
+  backdropFilter: 'blur(10px)',
   border: 'none',
   borderRadius: '15px',
   boxShadow: 24,
   p: 4,
 };
 
-const PopUp = ({
-  titleBtn = 'Open',
-  handleOpen,
-  handleClose,
-  open,
-  children,
-}) => {
+const PopUp = ({ titleBtn = 'Open', onOpen, onClose, open, children }) => {
   return (
     <div>
-      <MainButton onClick={handleOpen}>{titleBtn}</MainButton>
-      <Modal open={open} onClose={handleClose}>
+      <MainButton onClick={onOpen}>{titleBtn}</MainButton>
+      <Modal open={open} onClose={onClose}>
         <Box sx={style}>{children}</Box>
       </Modal>
     </div>

@@ -1,7 +1,7 @@
 import { Alert, AlertTitle } from '@mui/material';
 import PropTypes from 'prop-types';
 
-const ErrorMessage = ({ descrition = 'missing' }) => {
+const ErrorMessage = ({ message = 'missing' }) => {
   const styledAlert = {
     position: 'absolute',
     bottom: '20px',
@@ -12,13 +12,13 @@ const ErrorMessage = ({ descrition = 'missing' }) => {
   return (
     <Alert severity="error" sx={styledAlert}>
       <AlertTitle>Error</AlertTitle>
-      Details: <strong>{descrition}</strong>
+      Details: <strong>{message}</strong>
     </Alert>
   );
 };
 
 ErrorMessage.propTypes = {
-  descrition: PropTypes.string.isRequired,
+  message: PropTypes.string.isRequired,
 };
 
 export default ErrorMessage;

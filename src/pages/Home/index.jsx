@@ -12,10 +12,11 @@ import PopUpContent from './PopUpContent';
 const PopUpComponent = lazy(() => import('components/PopUp'));
 
 const Home = () => {
-  const { isLoading, error } = useSelector(getCustomers);
+  const [open, setOpen] = useState(false);
 
   const dispatch = useDispatch();
-  const [open, setOpen] = useState(false);
+  const { isLoading, error } = useSelector(getCustomers);
+
   const handleOpen = () => setOpen(true);
   const handleClose = () => setOpen(false);
 
@@ -27,15 +28,15 @@ const Home = () => {
     <MainContainer>
       <PopUpComponent
         titleBtn="Select Columns"
-        handleOpen={handleOpen}
-        handleClose={handleClose}
+        onOpen={handleOpen}
+        onClose={handleClose}
         open={open}
       >
-        <PopUpContent handleClosePopUp={handleClose} />
+        <PopUpContent onClose={handleClose} />
       </PopUpComponent>
       <CustomersTable />
       {isLoading && <Loader />}
-      {!isLoading && error ? <ErrorMessage description={error} /> : null}
+      {!isLoading && error ? <ErrorMessage message={error} /> : null}
     </MainContainer>
   );
 };
