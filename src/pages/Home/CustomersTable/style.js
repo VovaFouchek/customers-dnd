@@ -6,4 +6,7 @@ export const styledTableHead = {
 
 export const styledTableCell = {
   textAlign: 'center',
+  '@media (max-width: 900px)': {
+    padding: '10px',
+  },
 };

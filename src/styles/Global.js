@@ -39,6 +39,10 @@ button::-moz-focus-inner {
 	border: 0;
 }
 
+textarea:focus, input:focus{
+    outline: none;
+}
+
 a,
 a:visited {
 	text-decoration: none;

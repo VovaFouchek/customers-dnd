@@ -8,11 +8,11 @@ const MainButton = ({ onClick, children }) => {
       onClick={onClick}
       sx={{
         display: 'inline-block',
+        minWidth: '100px',
         borderRadius: '10px',
         fontSize: '14px',
         textTransform: 'inherit',
         backgroundColor: '#c314ff',
-        mb: 3,
         '&:hover': {
           backgroundColor: '#d559ff',
         },

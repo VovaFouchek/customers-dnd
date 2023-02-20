@@ -1,10 +1,16 @@
 import styled from 'styled-components';
 
+import { device } from 'styles/Breakpoints';
+
 export const StyledColumn = styled.div`
   display: flex;
   flex-direction: column;
-  height: 460px;
+  min-height: 555px;
   padding: 24px 0;
+
+  @media ${device.md} {
+    min-height: 350px;
+  }
 `;
 
 export const StyledList = styled.div`

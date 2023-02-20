@@ -15,6 +15,19 @@ const SearchBar = ({ value, onChange, placeholder }) => {
           '& input': {
             color: '#fff',
           },
+          '& .MuiOutlinedInput-root': {
+            width: '250px',
+            borderRadius: '10px',
+            '& fieldset': {
+              borderColor: '#9273c1',
+            },
+            '&:hover fieldset': {
+              borderColor: '#b085f1',
+            },
+            '&.Mui-focused fieldset': {
+              borderColor: '#b085f1',
+            },
+          },
         }}
       />
     </form>

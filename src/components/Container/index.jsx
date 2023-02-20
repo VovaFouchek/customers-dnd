@@ -1,5 +1,6 @@
 import styled from 'styled-components';
 
+import { device } from 'styles/Breakpoints';
 import { theme } from 'styles/Theme';
 
 const Container = styled.div`
@@ -11,6 +12,10 @@ const Container = styled.div`
   border-radius: 15px;
   font-family: 'Roboto', sans-serif;
   background: ${theme.colors.background};
+
+  @media ${device.md} {
+    padding: 15px;
+  }
 `;
 
 export default Container;

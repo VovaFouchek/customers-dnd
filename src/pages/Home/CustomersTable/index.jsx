@@ -41,7 +41,7 @@ const CustomersTable = () => {
   }, [customers, dispatch]);
 
   return (
-    <TableContainer component={Paper}>
+    <TableContainer component={Paper} sx={{ mt: 3 }}>
       <Table aria-label="table with customers">
         <TableHead>
           <TableRow>

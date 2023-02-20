@@ -17,12 +17,13 @@ const StyledColumns = styled.div`
   display: grid;
   grid-template-columns: 1fr 1fr;
   width: 100%;
-  height: 460px;
+  height: 555px;
   gap: 30px;
 
   @media ${device.md} {
     grid-template-columns: 1fr;
     overflow: auto;
+    margin-bottom: 20px;
   }
 `;
 
