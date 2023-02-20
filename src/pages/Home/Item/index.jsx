@@ -4,9 +4,9 @@ import PropTypes from 'prop-types';
 import { Draggable } from 'react-beautiful-dnd';
 import styled from 'styled-components';
 
+import { useDraggableInPortal } from 'hooks';
+
 const StyledItem = styled.div`
-  top: auto !important;
-  left: auto !important;
   width: 100%;
   margin-bottom: 15px;
   padding: 10px 15px;
@@ -17,9 +17,11 @@ const StyledItem = styled.div`
 `;
 
 const Item = ({ text, index }) => {
+  const renderDraggable = useDraggableInPortal();
+
   return (
     <Draggable draggableId={text} index={index}>
-      {(provided) => (
+      {renderDraggable((provided) => (
         <StyledItem
           ref={provided.innerRef}
           {...provided.draggableProps}
@@ -27,7 +29,7 @@ const Item = ({ text, index }) => {
         >
           {text}
         </StyledItem>
-      )}
+      ))}
     </Draggable>
   );
 };
